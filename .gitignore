@@ -7,3 +7,4 @@ geojosn-vt/
 *.qgs*
 *.qgd
 *.mbtiles
+*.log
