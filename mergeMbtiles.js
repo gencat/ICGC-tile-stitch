@@ -438,7 +438,7 @@ async function createOrigenTempFiles(z,x,y,tile_origen,tileId,dir,url_clip){
 		const bbox_tile_pol_file = await escribeArchivoJson(bbox_tile_pol_file_path, bbox_tile_pol);
 		//clip poligon
 		const clip_file = await clipGeoJSON(path.join(dir, tileId+"_clip_"+tipus+".geojson"), bbox_tile_pol_file_path, url_clip);
-		console.log(clip_file);
+		//console.log(clip_file);
 		const geojson_cliped = await fileGeoJsonClip(geojson_file, clip_file, tileId, dir, tipus);
 		resolve(geojson_cliped);
 	});
@@ -547,7 +547,7 @@ async function mergeTile(origen_mbt, destino_mbt, uri_clip, tile_index){
 		
 		const layers = await geojsonToFileLayers(geojson_merged, dir);
 		
-		//const tileMb = await createTileTippecanoe(tileId, tileIdDB, layers, dir);
+		const tileMb = await createTileTippecanoe(tileId, tileIdDB, layers, dir);
 		//console.log(tileMb);
 		
 		let hrend = process.hrtime(hrstart);
@@ -641,14 +641,15 @@ async function createMbtileSingleTile(uri_origen, uri_destino, uri_clip, z, x, y
 
 	var tilezxy = {x: x, y: y, z: z};
 	var isInner = await isInnerTile(z, x, y);
-	console.log(isInner);
+	//console.log(isInner);
 	
 	if(isInner){
-		let tileid = await replaceTile(origen_mbt, destino_mbt, tilezxy);
-		return tileid;
+		//let tileid = await replaceTile(origen_mbt, destino_mbt, tilezxy);
+		//return tileid;
 	}else{
+
 		var isEdge = await isEdgeTile(z, x, y);
-		console.log(isEdge);
+		//console.log(isEdge);
 		if (isEdge){
 			let tileid = await mergeTile(origen_mbt, destino_mbt, uri_clip, tilezxy);
 			return tileid;
@@ -662,6 +663,5 @@ async function createMbtileSingleTile(uri_origen, uri_destino, uri_clip, z, x, y
 
 
 createMbtileSingleTile(mbtiles_ori, mbtiles_dest, pol_cat, args.options.z,args.options.x,args.options.y);
-
 
 //mergeMbtiles(mbtiles_ori, mbtiles_dest, pol_cat, zoom_levels);
