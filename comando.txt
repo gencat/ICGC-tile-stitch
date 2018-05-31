@@ -1,0 +1,1 @@
+tippecanoe -o 12_2055_1508.mbtiles --one-tile=12/2055/1508 -L landcover:landcover.geojson -L park:park.geojson -L landuse:landuse.geojson -L building:building.geojson -L waterway:waterway.geojson -L transportation:transportation.geojson -L boundary:boundary.geojson -L mountain_peak:mountain_peak.geojson -L place:place.geojson
