@@ -1,3 +1,9 @@
 # Dependency directories
 node_modules/
 jspm_packages/
+temp/
+geojosn-vt/
+.vscode
+*.qgs*
+*.qgd
+*.mbtiles
