@@ -2,7 +2,7 @@
 node_modules/
 jspm_packages/
 temp/
-geojosn-vt/
+geojson-vt/
 .vscode
 *.qgs*
 *.qgd
