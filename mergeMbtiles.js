@@ -640,10 +640,11 @@ async function createMbtileSingleTile(uri_origen, uri_destino, uri_clip, z, x, y
 	var destino_mbt = await getMbtile(uri_destino);
 
 	var tilezxy = {x: x, y: y, z: z};
-	var isInner = await isInnerTile(z, x, y);
+	//var isInner = await isInnerTile(z, x, y);
 	//console.log(isInner);
 	
-	if(isInner){
+	//if(isInner){
+	if(false){
 		//let tileid = await replaceTile(origen_mbt, destino_mbt, tilezxy);
 		//return tileid;
 	}else{
