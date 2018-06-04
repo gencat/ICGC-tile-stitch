@@ -1,5 +1,6 @@
 "use strict";
 const zlib = require('zlib');
+const rewind = require('geojson-rewind');
 const VectorTile = require('@mapbox/vector-tile').VectorTile;
 const fs = require('fs');
 const { execFile } = require('child_process');
@@ -231,10 +232,22 @@ class UtilsMbtiles {
 	static async fileGeoJsonClip(geojson_path, clip_path, tileId, dir, tipus){
 		//archivo con el geojson cortado
 		return new Promise(async function(resolve, reject) {
-			const output_file_origen = await UtilsMbtiles.clipGeoJSON(path.join(dir, tileId+"_cliped_"+tipus+".geojson"), geojson_path, clip_path);
-			//let hrend = process.hrtime(hrstart);
-			//console.log("fileGeoJsonClip Execution time (hr): %s", prettySeconds(hrend[0]));
-			resolve(output_file_origen);
+			if(tipus !== 'origen') {
+				const output_file_origen = await UtilsMbtiles.clipGeoJSON(path.join(dir, tileId+"_cliped_"+tipus+".geojson"), geojson_path, clip_path);
+				//let hrend = process.hrtime(hrstart);
+				//console.log("fileGeoJsonClip Execution time (hr): %s", prettySeconds(hrend[0]));
+				resolve(output_file_origen);
+			} else {
+				const output_file_origen = path.join(dir, tileId+"_cliped_"+tipus+".geojson");
+				execFile("/bin/cp", [geojson_path, output_file_origen], function (err, stdout, stderr) {
+					if (err) {
+						console.log(err);
+						reject(err);
+					}else{
+						resolve(output_file_origen);
+					}
+				});
+			}
 		});
 	}
 
@@ -242,8 +255,8 @@ class UtilsMbtiles {
 		return new Promise(async function(resolve, reject) {
 			var clockwise = false;
 			const keysItems = layersKeys.map(async function(item){
-				// geojson = rewind(layers[item], clockwise);
-				let geojson = layers[item];
+				let geojson = rewind(layers[item], clockwise);
+//				let geojson = layers[item];
 				//let key_file = {};
 				let json_file = await UtilsMbtiles.escribeArchivoJson(path.join(dir, item+".geojson"), geojson);
 				//let hrend = process.hrtime(hrstart);
