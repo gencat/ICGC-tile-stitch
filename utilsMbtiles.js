@@ -1,6 +1,8 @@
 "use strict";
 const zlib = require('zlib');
 const VectorTile = require('@mapbox/vector-tile').VectorTile;
+const turf = require('@turf/turf');
+const rewind = require('geojson-rewind');
 const fs = require('fs');
 const { execFile } = require('child_process');
 const path = require('path');
@@ -155,6 +157,10 @@ class UtilsMbtiles {
 						}
 					}
 				});
+				//const clockwise = false;
+				//const flatten = turf.flatten(collection);
+				//collection = rewind(flatten, clockwise);
+
 				resolve(collection);
 			});
 		});	
