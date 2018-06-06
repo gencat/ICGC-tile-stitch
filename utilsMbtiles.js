@@ -121,11 +121,48 @@ class UtilsMbtiles {
 		});
 	}
 
+	static updateTilePlanet(mbtiles, data, z, x, y){
+		return new Promise(async function(resolve, reject) {
+			mbtiles.updateTilePlanet(z, x, y, data, function(err) {
+				// continue onward
+				if (err) {
+					reject(err);
+					//throw err;
+				}else{
+					mbtiles.stopWriting(function(err) {
+						// stop writing to your mbtiles object
+						if (err) {
+							//throw err;
+							reject(err);
+						}else{
+							//console.log("stopWriting");
+							//let hrend = process.hrtime(hrstart);
+							//console.log("Execution time (hr): %s", prettySeconds(hrend[0]));
+							resolve();
+						}
+					}); //end stopwrite
+				}
+			}); //end update
+		});
+	}
+
 	static async replaceTile(origen_mbt, destino_mbt, tile_index){
 		return new Promise(async function(resolve, reject) {
 			try{
 				const tile_origen = await UtilsMbtiles.getTile(tile_index.z, tile_index.x, tile_index.y, origen_mbt);
 				await UtilsMbtiles.updateTile(destino_mbt, tile_origen, tile_index.z, tile_index.x, tile_index.y);
+				resolve(tile_index);
+			}catch(err){
+				reject(err);
+			}
+		});
+	}
+
+	static async replaceTilePlanet(origen_mbt, destino_mbt, tile_index){
+		return new Promise(async function(resolve, reject) {
+			try{
+				const tile_origen = await UtilsMbtiles.getTile(tile_index.z, tile_index.x, tile_index.y, origen_mbt);
+				await UtilsMbtiles.updateTilePlanet(destino_mbt, tile_origen, tile_index.z, tile_index.x, tile_index.y);
 				resolve(tile_index);
 			}catch(err){
 				reject(err);

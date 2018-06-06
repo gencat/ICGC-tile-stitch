@@ -22,7 +22,7 @@ async function mergeTiles(origen_mbt, destino_mbt, z_levels){
 							feat.properties.id = feat.id;
 						}
 						const tilezxy = UtilsMbtiles.idTile2ZXY(feat.properties.id);
-						const tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
+						const tileid = await UtilsMbtiles.replaceTilePlanet(origen_mbt, destino_mbt, tilezxy);
 						next(null,tileid);
 					})();
 				},
@@ -36,7 +36,9 @@ async function mergeTiles(origen_mbt, destino_mbt, z_levels){
 	});
 }
 
-async function mergeMbtiles(uri_origen, uri_destino, uri_clip, z_levels){
+async function mergeMbtiles(uri_origen, uri_destino, z_levels){
+	console.log(uri_origen);
+	console.log(uri_destino);
 	const origen = await UtilsMbtiles.getMbtile(uri_origen);
 	const destino = await UtilsMbtiles.getMbtile(uri_destino);
 	mergeTiles(origen, destino, z_levels);
