@@ -1,35 +1,70 @@
 # Tile Stitch
+Tile Stitch is a tool aimed at replacing tiles inside a given mbttiles file with tiles from another set of tiles, using a polygon to mask the stitching area and merge if needed contents from both sets of boundary tiles.
 
-Para descargar las dependencias
+## Getting Started
 
-        npm install
 
-## Descarga datos de OSM vía Overpass API
+### Prerequisites
 
-Programa que leer un json con teselas y hace la llamada a la API de Overpass de OSM para extraer toda la información de esa tesela. Luego cargar esa información en un BD de Postgis.
+This project in based on [NodeJs](https://nodejs.org/en/)
 
-Para ejecutar el programa
+### Installation
 
-        node index.js
+```
+    git clone https://github.com/gencat/ICGC-tile-stitch.git
+    cd ICGC-tile-stitch
+    npm install
 
-En este caso se utilizan las tiles del nivel 14 que intersectan con el límite de full 5M, esta están en el archivo tiles14_edges.geojson
+```
 
-## Crear el "stitch" de las teselas del límite del área de trabajo
 
-Dados2 mbtiles diferentes, combina la información de las teselas de límite y crear un archivo mbtiles por tesela con la información combinada  
+### Configuration
 
-Para ejecutar el programa
+Edit *config.js*   
+
+```
+f.mbtiles_ori = './icgc.mbtiles'; // your local tiles
+_f.mbtiles_dest = './europe_spain.mbtiles'; // Country Mbtiles from OpenMaptiles
+_f.pol_cat = './CAT_plus_box.geojson'; //clipping polygon
+_f.mbtiles_planet = './planet.mbtiles'; //full planet from OpenMaptiles
+_f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
+```
+
+### Running
+
+#### To create stitched tiles
+
+```
 
         ./stitch.sh
 
-## Crear el mbtiles remplazando las teselas que están en el área de trabajo
+```
+#### To replace your local stitched tiles into country tiles
 
-Para ejecutar el programa
+
+```
 
         node mergeMbtiles.js
 
-## Remplazar la teselas del área de trabajo en el planet
+```
 
-Para ejecutar el programa
+        
+#### To replace your country tiles into planet tiles
 
-        node mergePlanet.js
+
+```
+
+       node mergePlanet.js
+
+```
+
+## Authors
+
+* [Institut Cartogràfic i Geològic de Catalunya](https://www.icgc.cat/)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+
