@@ -65,6 +65,6 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 
