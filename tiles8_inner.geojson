@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "tiles8_inner",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "(129, 95, 8)", "title": "XYZ tile (129, 95, 8)" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 1.40625, 40.979898069620127 ], [ 1.40625, 42.032974332441391 ], [ 2.8125, 42.032974332441391 ], [ 2.8125, 40.979898069620127 ], [ 1.40625, 40.979898069620127 ] ] ] } },
+{ "type": "Feature", "properties": { "id": "(130, 95, 8)", "title": "XYZ tile (130, 95, 8)" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 2.8125, 40.979898069620127 ], [ 2.8125, 42.032974332441391 ], [ 4.21875, 42.032974332441391 ], [ 4.21875, 40.979898069620127 ], [ 2.8125, 40.979898069620127 ] ] ] } }
+]
+}
