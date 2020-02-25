@@ -281,7 +281,7 @@ class UtilsMbtiles {
 				resolve(output_file_origen);
 			} else {
 				const output_file_origen = path.join(dir, tileId+"_cliped_"+tipus+".geojson");
-				execFile("/bin/cp", [geojson_path, output_file_origen], function (err, stdout, stderr) {
+				execFile(_f.copy, [geojson_path, output_file_origen], function (err, stdout, stderr) {
 					if (err) {
 						console.log(err);
 						reject(err);
