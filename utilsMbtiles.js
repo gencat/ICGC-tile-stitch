@@ -91,7 +91,23 @@ class UtilsMbtiles {
 				if (err) {
 					reject(err);
 				}
-				resolve(data);
+				//check if tile if compressed
+				if(headers && headers['Content-Encoding'] && headers['Content-Encoding']== 'gzip'){
+					resolve(data);
+				}else{
+					zlib.gzip(data, function(err, tile) {
+						if (err) {
+							reject(err);
+							
+						}
+						resolve(tile);
+					});
+
+				}
+				
+
+
+				
 			});
 		});	
 	}
@@ -150,7 +166,11 @@ class UtilsMbtiles {
 		return new Promise(async function(resolve, reject) {
 			try{
 				const tile_origen = await UtilsMbtiles.getTile(tile_index.z, tile_index.x, tile_index.y, origen_mbt);
+
+				//console.info("gettile",tile_origen);
+
 				await UtilsMbtiles.updateTile(destino_mbt, tile_origen, tile_index.z, tile_index.x, tile_index.y);
+				//console.info("he actalitzat tiles");
 				resolve(tile_index);
 			}catch(err){
 				reject(err);
@@ -175,6 +195,7 @@ class UtilsMbtiles {
 			zlib.unzip(data, function(err, tile) {
 				if (err) {
 					reject(err);
+					//tile= data;
 				}
 				var rawTile = new VectorTile(new Pbf(tile));
 				var layers = Object.keys(rawTile.layers);

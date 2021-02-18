@@ -8,3 +8,4 @@ geojson-vt/
 *.qgd
 *.mbtiles
 *.log
+token.txt

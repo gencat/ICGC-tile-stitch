@@ -46,6 +46,7 @@ async function mergeTiles(origen_mbt, destino_mbt, z_levels){
 					})();
 				},
 				function(err, transformedItems){
+					console.log("err0",err);
 					console.log(transformedItems);
 				}
 			);

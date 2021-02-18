@@ -8,6 +8,8 @@ Tile Stitch is a tool aimed at replacing tiles inside a given mbttiles file with
 
 This project in based on [NodeJs](https://nodejs.org/en/)
 
+This project use [Tippecanoe](https://github.com/mapbox/tippecanoe) and [GDAL](https://gdal.org/) 
+
 ### Installation
 
 ```

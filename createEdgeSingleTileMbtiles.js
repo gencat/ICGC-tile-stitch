@@ -142,7 +142,8 @@ async function mergeTile(origen_mbt, destino_mbt, uri_clip, tile_index){
 		
 		const layers = await UtilsMbtiles.geojsonToFileLayers(geojson_merged, dir);
 		
-		//const tileMb = await createTileTippecanoe(tileId, tileIdDB, layers, dir);
+		//create tippecaoe mbtiles
+		const tileMb = await createTileTippecanoe(tileId, tileIdDB, layers, dir);
 		
 		//let hrend = process.hrtime(hrstart);
 		//console.log("mergeTile Execution time (hr): %s", prettySeconds(hrend[0]));
