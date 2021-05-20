@@ -32,6 +32,7 @@ _f.mbtiles_planet = './planet.mbtiles'; //full planet from OpenMaptiles
 _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
 ```
 
+
 ### Running
 
 #### To create stitched tiles
@@ -41,6 +42,8 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
         ./stitch.sh
 
 ```
+
+
 #### To replace your local stitched tiles into country tiles
 
 
@@ -49,6 +52,7 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
         node mergeMbtiles.js
 
 ```
+
 
         
 #### To replace your country tiles into planet tiles
@@ -59,6 +63,30 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
        node mergePlanet.js
 
 ```
+
+
+### if your local mbtiles has levels higher than 14 and diferents data models local.mbtiles -> planet.mbtiles
+
+#### Option A  local.mbtiles -> planet.mbtiles
+
+```
+    node addExtraLevelsToPlanet.js
+```
+#### Option B  planet.mbtiles -> local.mbtiles  tile-join -Z 15 -o ctxmaps15-16.mbtiles ctxmaps_0_5_0.mbtiles
+```
+        #extract higher levels
+
+        tile-join -Z 15  -o newlocal15-16.mbtiles  local.mbtiles
+
+        #insert planet14 into newlocal15-16.mbtiles
+        
+        sqlite3
+        ATTACH "planet14.mbtiles" AS db1;
+        ATTACH "newlocal15-16.mbtiles" AS db2;
+        INSERT INTO db2.tiles SELECT * FROM db1.tiles;
+
+```
+
 
 ## Authors
 
