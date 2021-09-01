@@ -76,13 +76,13 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
 ```
         #extract higher levels
 
-        tile-join -Z 15  -o newlocal15-16.mbtiles  local.mbtiles
+        tile-join -Z 15  -o ctxmaps15-16.mbtiles  local.mbtiles
 
-        #insert planet14 into newlocal15-16.mbtiles
+        #insert planet14 into ctxmaps15-16.mbtiles
         
         sqlite3
         ATTACH "planet14.mbtiles" AS db1;
-        ATTACH "newlocal15-16.mbtiles" AS db2;
+        ATTACH "ctxmaps15-16.mbtiles" AS db2;
         INSERT INTO db2.tiles SELECT * FROM db1.tiles;
 
 ```
