@@ -32,10 +32,13 @@ _f.mbtiles_planet = './planet.mbtiles'; //full planet from OpenMaptiles
 _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
 ```
 
+<<<<<<< HEAD
 <<<<<<< ours
 =======
 
 >>>>>>> theirs
+=======
+>>>>>>> d57f7b366e9b7775cb2235da935d63a34342717c
 ### Running
 
 #### To create stitched tiles
@@ -45,11 +48,14 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
         ./stitch.sh
 
 ```
+<<<<<<< HEAD
 <<<<<<< ours
 =======
 
 
 >>>>>>> theirs
+=======
+>>>>>>> d57f7b366e9b7775cb2235da935d63a34342717c
 #### To replace your local stitched tiles into country tiles
 
 
@@ -59,10 +65,13 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
 
 ```
 
+<<<<<<< HEAD
 <<<<<<< ours
 =======
 
 >>>>>>> theirs
+=======
+>>>>>>> d57f7b366e9b7775cb2235da935d63a34342717c
         
 #### To replace your country tiles into planet tiles
 
@@ -73,6 +82,7 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
 
 ```
 
+<<<<<<< HEAD
 <<<<<<< ours
 =======
 
@@ -100,6 +110,8 @@ _f.zoom_levels = [7,8,9,10,11,12,13,14]; //replace zoom levels
 
 
 >>>>>>> theirs
+=======
+>>>>>>> d57f7b366e9b7775cb2235da935d63a34342717c
 ## Authors
 
 * [Institut Cartogràfic i Geològic de Catalunya](https://www.icgc.cat/)
