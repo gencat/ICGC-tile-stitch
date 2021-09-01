@@ -117,7 +117,8 @@ class UtilsMbtiles {
 		return (1 << z) - 1 - y;
 	}
 
-	static createTileId(z, x, y) {
+
+	static createTileId2(z, x, y) {
 		return `${z}/${x}/${y}`;
 	}
 	static writeTile(mbtiles, data, z, x, y) {
