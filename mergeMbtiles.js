@@ -26,23 +26,47 @@ async function mergeSingleTile(tilezxy, destino_mbt){
 
 async function mergeTiles(origen_mbt, destino_mbt, z_levels){
 	z_levels.forEach(async (item) => {	
+<<<<<<< ours
+=======
+		console.info("zomm",item);
+>>>>>>> theirs
 		try{
 			const tiles = await UtilsMbtiles.leerJson('tiles'+item+'.geojson');
 			syncEach(tiles.features, 
 				function(feat, next){
 					(async () => {
+<<<<<<< ours
+=======
+						
+
+>>>>>>> theirs
 						if(!feat.properties.id){
 							feat.properties.id = feat.id;
 						}
 						const tilezxy = UtilsMbtiles.idTile2ZXY(feat.properties.id);
 						const isInner = await isInnerTile(tilezxy.z, tilezxy.x, tilezxy.y);
 						let tileid = null;
+<<<<<<< ours
 						if(isInner){
 							tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
 						}else{
 							tileid = await mergeSingleTile(tilezxy, destino_mbt);
 						}
 						next(null,tileid);
+=======
+						if(item <=14){
+									if(isInner){
+										tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
+									}else{
+										tileid = await mergeSingleTile(tilezxy, destino_mbt);
+									}
+						}else{
+									tileid = await UtilsMbtiles.addNewTile(origen_mbt, destino_mbt, tilezxy);
+									
+								}			
+						next(null,tileid);
+					
+>>>>>>> theirs
 					})();
 				},
 				function(err, transformedItems){

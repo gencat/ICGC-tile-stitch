@@ -9,3 +9,5 @@ geojson-vt/
 *.mbtiles
 *.log
 token.txt
+tiles16.geojson
+tiles15.geojson

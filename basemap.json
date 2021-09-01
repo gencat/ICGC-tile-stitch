@@ -1,0 +1,302 @@
+{
+	"tiles": ["https://geoserveis.icgc.cat/data/planet/{z}/{x}/{y}.pbf"],
+	"name": "OpenMapTiles",
+	"format": "pbf",
+	"basename": "planet.mbtiles",
+	"id": "openmaptiles",
+	"attribution": "<a href=\"https://www.icgc.cat/\" target=\"_blank\"> Institut Cartogràfic i Geològic de Catalunya</a> <a href=\"http://www.openmaptiles.org/\" target=\"_blank\">&copy; OpenMapTiles</a> <a href=\"http://www.openstreetmap.org/about/\" target=\"_blank\">&copy; OpenStreetMap contributors</a>",
+	"center": [1.537786,
+	41.837539,
+	4],
+	"description": "Estils vector ICGC Catalunya i resta del móns amb OpenMapTiles.",
+	"maxzoom": 14,
+	"minzoom": 0,
+	"pixel_scale": "256",
+	"vector_layers": [{
+	"id": "aerodrome_label",
+	"description": "aerodrome_label",
+	"minzoom": 10,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"name:latin": "String"
+	}, {
+		"iata": "String"
+	}, {
+		"ele": "Number"
+	}, {
+		"icao": "String"
+	}, {
+		"name_de": "String"
+	}, {
+		"ele_ft": "Number"
+	}, {
+		"name_en": "String"
+	}, {
+		"class": "String"
+	}]
+}, {
+	"id": "park",
+	"description": "park",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"class": "String"
+	}]
+}, {
+	"id": "landcover",
+	"description": "landcover",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"class": "String"
+	}]
+}, {
+	"id": "contour",
+	"description": "contour",
+	"minzoom": 14,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"class": "String"
+	}, {
+		"height": "Number"
+	}]
+}, {
+	"id": "poi",
+	"description": "poi",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"name": "String"
+	}, {
+		"name:latin": "String"
+	}, {
+		"rank": "Number"
+	}, {
+		"class": "String"
+	}, {
+		"subclass": "String"
+	}, {
+		"zoom": "Number"
+	}, {
+		"categoria": "String"
+	}, {
+		"layer": "String"
+	}, {
+		"classicgc": "String"
+	}, {
+		"icgc_id_match": "Number"
+	}]
+}, {
+	"id": "aeroway",
+	"description": "aeroway",
+	"minzoom": 10,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"class": "String"
+	}, {
+		"tipus": "Number"
+	}]
+}, {
+	"id": "housenumber",
+	"description": "housenumber",
+	"minzoom": 14,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"housenumber": "String"
+	}]
+}, {
+	"id": "transportation_name",
+	"description": "transportation_name",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"name": "String"
+	}, {
+		"name:latin": "String"
+	}, {
+		"ref": "String"
+	}, {
+		"ref_length": "Number"
+	}, {
+		"network": "String"
+	}, {
+		"id_via": "String"
+	}, {
+		"class": "String"
+	}, {
+		"subclass": "String"
+	}, {
+		"layer": "Number"
+	}, {
+		"level": "Number"
+	}, {
+		"indoor": "Number"
+	}, {
+		"zoom": "Number"
+	}, {
+		"mtc25m": "String"
+	}, {
+		"colorcaixa": "Number"
+	}, {
+		"rank": "Number"
+	}, {
+		"codigeo": "Number"
+	}]
+}, {
+	"id": "building",
+	"description": "building",
+	"minzoom": 7,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"render_height": "Number"
+	}, {
+		"render_min_height": "Number"
+	}, {
+		"building": "String"
+	}]
+}, {
+	"id": "water_name",
+	"description": "water_name",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"name:latin": "String"
+	}, {
+		"class": "String"
+	}, {
+		"zoom": "Number"
+	}, {
+		"rank": "Number"
+	}, {
+		"codigeo": "Number"
+	}, {
+		"fontsize": "Number"
+	}]
+}, {
+	"id": "waterway",
+	"description": "waterway",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"name": "String"
+	}, {
+		"name:latin": "String"
+	}, {
+		"class": "String"
+	}, {
+		"entorn": "String"
+	}]
+}, {
+	"id": "boundary",
+	"description": "boundary",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"admin_level": "Number"
+	}, {
+		"disputed": "Number"
+	}, {
+		"maritime": "Number"
+	}, {
+		"minzoom": "Number"
+	}, {
+		"maxzoom": "Number"
+	}]
+}, {
+	"id": "transportation",
+	"description": "transportation",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"class": "String"
+	}, {
+		"subclass": "String"
+	}, {
+		"ramp": "Number"
+	}, {
+		"oneway": "Number"
+	}, {
+		"brunnel": "String"
+	}, {
+		"service": "String"
+	}, {
+		"layer": "Number"
+	}, {
+		"level": "Number"
+	}, {
+		"indoor": "Number"
+	}, {
+		"d_categori": "String"
+	}, {
+		"codi_via": "String"
+	}, {
+		"observacio": "String"
+	}]
+}, {
+	"id": "water",
+	"description": "water",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"class": "String"
+	}]
+}, {
+	"id": "place",
+	"description": "place",
+	"minzoom": 6,
+	"maxzoom": 18,
+	"fields": [{
+		"icgc_id": "Number"
+	}, {
+		"name": "String"
+	}, {
+		"name:latin": "String"
+	}, {
+		"rank": "Number"
+	}, {
+		"class": "String"
+	}, {
+		"codigeo": "Number"
+	}, {
+		"zoom": "Number"
+	}, {
+		"icgc_id_match": "Number"
+	}]
+}],
+	"version": "3.6.1",
+	"maskLevel": "8",
+	"bounds": [-180,
+	-85.0511,
+	180,
+	85.0511],
+	"planettime": "1499040000000",
+	"tilejson": "2.0.0"
+}
