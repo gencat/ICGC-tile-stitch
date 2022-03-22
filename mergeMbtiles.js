@@ -35,34 +35,34 @@ async function mergeTiles(origen_mbt, destino_mbt, z_levels){
 				function(feat, next){
 					(async () => {
 
-						if(!feat.properties.id){
-							feat.properties.id = feat.id;
+						if (feat !== undefined) {
+							if(!feat.properties.id){
+								feat.properties.id = feat.id;
+							}
+							const tilezxy = UtilsMbtiles.idTile2ZXY(feat.properties.id);
+							const isInner = await isInnerTile(tilezxy.z, tilezxy.x, tilezxy.y);
+							let tileid = null;
+	
+							if(isInner){
+								tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
+							}else{
+								tileid = await mergeSingleTile(tilezxy, destino_mbt);
+							}
+							next(null,tileid);
+	
+	
+							if(item <=14){
+										if(isInner){
+											tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
+										}else{
+											tileid = await mergeSingleTile(tilezxy, destino_mbt);
+										}
+							}else{
+										tileid = await UtilsMbtiles.addNewTile(origen_mbt, destino_mbt, tilezxy);
+										
+									}			
+							next(null,tileid);
 						}
-						const tilezxy = UtilsMbtiles.idTile2ZXY(feat.properties.id);
-						const isInner = await isInnerTile(tilezxy.z, tilezxy.x, tilezxy.y);
-						let tileid = null;
-
-						if(isInner){
-							tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
-						}else{
-							tileid = await mergeSingleTile(tilezxy, destino_mbt);
-						}
-						next(null,tileid);
-
-
-						if(item <=14){
-									if(isInner){
-										tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
-									}else{
-										tileid = await mergeSingleTile(tilezxy, destino_mbt);
-									}
-						}else{
-									tileid = await UtilsMbtiles.addNewTile(origen_mbt, destino_mbt, tilezxy);
-									
-								}			
-						next(null,tileid);
-					
-
 					})();
 				},
 				function(err, transformedItems){

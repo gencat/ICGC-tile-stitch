@@ -1,5 +1,5 @@
 # Tile Stitch
-Tile Stitch is a tool aimed at replacing tiles inside a given mbttiles file with tiles from another set of tiles, using a polygon to mask the stitching area and merge if needed contents from both sets of boundary tiles.
+Tile Stitch is a tool aimed at replacing tiles inside a given mbtiles file with tiles from another set of tiles, using a polygon to mask the stitching area and merge if needed contents from both sets of boundary tiles.
 
 ## Getting Started
 

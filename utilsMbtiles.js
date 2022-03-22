@@ -292,7 +292,7 @@ class UtilsMbtiles {
 				//console.info("he actalitzat tiles");
 				resolve(tile_index);
 			} catch (err) {
-				console,info("hi ha error",err);
+				console.info("hi ha error",err);
 				resolve();
 				//reject(err);
 			}

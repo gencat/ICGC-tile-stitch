@@ -133,7 +133,7 @@ try{
 		try {
 			fs.statSync(dir);
 		} catch (e) {
-			fs.mkdirSync(dir);
+			fs.mkdirSync(dir, {recursive: true});
 		}
 
 		//origen
