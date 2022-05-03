@@ -42,15 +42,7 @@ async function mergeTiles(origen_mbt, destino_mbt, z_levels){
 							const tilezxy = UtilsMbtiles.idTile2ZXY(feat.properties.id);
 							const isInner = await isInnerTile(tilezxy.z, tilezxy.x, tilezxy.y);
 							let tileid = null;
-	
-							if(isInner){
-								tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
-							}else{
-								tileid = await mergeSingleTile(tilezxy, destino_mbt);
-							}
-							next(null,tileid);
-	
-	
+
 							if(item <=14){
 										if(isInner){
 											tileid = await UtilsMbtiles.replaceTile(origen_mbt, destino_mbt, tilezxy);
